@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS users (
+  id BIGSERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  email VARCHAR(254) NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  plan VARCHAR(20) NOT NULL DEFAULT 'free' CHECK (plan IN ('free','premium')),
+  subscription_status VARCHAR(30) NOT NULL DEFAULT 'inactive',
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE TABLE IF NOT EXISTS projects (
+  id BIGSERIAL PRIMARY KEY,
+  user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  title VARCHAR(100) NOT NULL DEFAULT 'My CSS layout',
+  layout_json JSONB NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS projects_user_id_idx ON projects(user_id);

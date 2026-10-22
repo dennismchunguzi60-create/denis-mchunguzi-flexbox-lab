@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Denis Mchunguzi's Flexbox Lab — an interactive playground for learning CSS Flexbox, Grid, and animations." />
+  <title>Denis Mchunguzi’s Flexbox Lab — CSS Playground</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Denis Mchunguzi’s Flexbox Lab home">
+      <span class="brand-mark">DM</span>
+      <span>Denis Mchunguzi’s<span class="brand-accent"> Flexbox Lab</span><small>LEARN CSS BY DOING</small></span>
+    </a>
+    <nav class="top-actions">
+      <span class="status"><i></i> Live preview</span>
+      <label class="language-picker" for="languageSelect">Language <select id="languageSelect" aria-label="Choose explanation language" title="Choose the language used for CSS explanations"><option value="en">English</option><option value="sw" selected>Kiswahili</option><option value="es">Español</option><option value="fr">Français</option></select></label>
+      <button id="themeToggle" class="icon-button" aria-label="Toggle theme" title="Toggle light/dark theme">☼</button>
+      <a class="github-link" href="#about">About</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LEARN BY EXPERIMENTING</p>
+        <h1>Make CSS <span>click.</span></h1>
+        <p class="hero-copy">Build layouts, play with animations, and see the CSS change in real time.</p>
+      </div>
+      <div class="hero-badge"><span class="sparkle">✳</span><div><strong>Play. Learn. Build.</strong><small>Your visual CSS workshop</small></div></div>
+    </section>
+
+    <section class="workspace">
+      <div class="preview-card panel">
+        <div class="panel-heading">
+          <div><span class="section-kicker">01 / CANVAS</span><h2>Live preview</h2></div>
+          <div class="preview-actions">
+            <span class="live-dot">LIVE</span>
+            <button id="randomBtn" class="small-button">↻ Randomize</button>
+          </div>
+        </div>
+        <div class="preset-bar">
+          <label for="presetSelect">Quick layouts</label>
+          <select id="presetSelect" aria-label="Choose a layout preset" title="Chagua layout iliyotayarishwa ili ujaribu mpangilio tofauti.">
+            <option value="default">Choose a preset…</option><option value="center">Center everything</option><option value="navbar">Navigation bar</option><option value="cards">Card grid</option><option value="sidebar">Sidebar layout</option><option value="gallery">Gallery grid</option>
+          </select>
+        </div>
+        <div class="canvas-wrap">
+          <div id="playground" class="playground" aria-label="Live layout preview">
+            <div class="tile" data-num="1">01</div>
+            <div class="tile" data-num="2">02</div>
+            <div class="tile" data-num="3">03</div>
+            <div class="tile" data-num="4">04</div>
+            <div class="tile" data-num="5">05</div>
+            <div class="tile" data-num="6">06</div>
+          </div>
+        </div>
+        <div class="canvas-footer"><span><b id="itemCount">6</b> items</span><span>Changes apply instantly <span class="arrow">↗</span></span></div>
+      </div>
+
+      <aside class="controls-card panel">
+        <div class="panel-heading">
+          <div><span class="section-kicker">02 / CONTROLS</span><h2>Layout settings</h2></div>
+          <button id="resetBtn" class="text-button">Reset ↺</button>
+        </div>
+        <div class="control-scroll">
+          <div class="control-group">
+            <label for="layout">Layout mode<span class="help-tip" tabindex="0" role="img" aria-label="Help: Chagua Flexbox au Grid. Hizi ni njia mbili tofauti za kupanga elements kwenye ukurasa." data-tip="Chagua Flexbox au Grid. Hizi ni njia mbili tofauti za kupanga elements kwenye ukurasa.">?</span></label>
+            <div class="segmented">
+              <button class="mode-btn active" data-layout="flex" title="Panga items kwenye mstari au safu kwa Flexbox.">Flexbox</button>
+              <button class="mode-btn" data-layout="grid" title="Panga items kwenye rows na columns kwa CSS Grid.">Grid</button>
+            </div>
+          </div>
+
+          <div id="flexControls">
+            <div class="control-group">
+              <label for="direction">Flex direction<span class="help-tip" tabindex="0" role="img" aria-label="Help: Flex direction huamua items zifuate mstari (row) au safu (column), na inaweza kubadilisha mwelekeo." data-tip="Flex direction huamua items zifuate mstari (row) au safu (column), na inaweza kubadilisha mwelekeo.">?</span></label>
+              <select id="direction"><option value="row">Row →</option><option value="column">Column ↓</option><option value="row-reverse">Row reverse ←</option><option value="column-reverse">Column reverse ↑</option></select>
+            </div>
+            <div class="control-grid">
+              <div class="control-group">
+                <label for="justify">Justify content<span class="help-tip" tabindex="0" role="img" aria-label="Help: Justify Content hupanga items kwenye main axis. Jaribu center, space-between, au flex-end uone tofauti." data-tip="Justify Content hupanga items kwenye main axis. Jaribu center, space-between, au flex-end uone tofauti.">?</span></label>
+                <select id="justify"><option>flex-start</option><option>center</option><option>flex-end</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select>
+              </div>
+              <div class="control-group">
+                <label for="align">Align items<span class="help-tip" tabindex="0" role="img" aria-label="Help: Align Items hupanga items kwenye cross axis, yaani mhimili unaovuka main axis." data-tip="Align Items hupanga items kwenye cross axis, yaani mhimili unaovuka main axis.">?</span></label>
+                <select id="align"><option>stretch</option><option selected>center</option><option>flex-start</option><option>flex-end</option><option>baseline</option></select>
+              </div>
+            </div>
+            <div class="control-group">
+              <label for="wrap">Flex wrap<span class="help-tip" tabindex="0" role="img" aria-label="Help: Flex Wrap huamua kama items zibaki mstari mmoja au zihamie mstari mwingine nafasi ikipungua." data-tip="Flex Wrap huamua kama items zibaki mstari mmoja au zihamie mstari mwingine nafasi ikipungua.">?</span></label>
+              <select id="wrap"><option value="nowrap">No wrap</option><option value="wrap">Wrap</option><option value="wrap-reverse">Wrap reverse</option></select>
+            </div>
+          </div>
+
+          <div id="gridControls" class="hidden">
+            <div class="control-grid">
+              <div class="control-group">
+                <label for="columns">Columns<span class="help-tip" tabindex="0" role="img" aria-label="Help: Idadi ya columns za CSS Grid. Kwa mfano, 3 huunda safu za vitu katika columns tatu." data-tip="Idadi ya columns za CSS Grid. Kwa mfano, 3 huunda safu za vitu katika columns tatu.">?</span></label>
+                <select id="columns"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select>
+              </div>
+              <div class="control-group">
+                <label for="rows">Rows<span class="help-tip" tabindex="0" role="img" aria-label="Help: Huamua idadi ya rows za Grid. Auto huacha browser ipange rows kulingana na items zilizopo." data-tip="Huamua idadi ya rows za Grid. Auto huacha browser ipange rows kulingana na items zilizopo.">?</span></label>
+                <select id="rows"><option value="auto">Auto</option><option>2</option><option>3</option><option>4</option></select>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="label-row"><label for="gap">Gap<span class="help-tip" tabindex="0" role="img" aria-label="Help: Nafasi kati ya items. Gap ya 20px huweka nafasi ya 20 pixels kati ya boxes." data-tip="Nafasi kati ya items. Gap ya 20px huweka nafasi ya 20 pixels kati ya boxes.">?</span></label><output id="gapOut">16 px</output></div>
+            <input id="gap" type="range" min="0" max="48" value="16" />
+          </div>
+          <div class="control-grid">
+            <div class="control-group">
+              <div class="label-row"><label for="tileWidth">Item width<span class="help-tip" tabindex="0" role="img" aria-label="Help: Upana wa kila item kwenye preview na kwenye CSS inayozalishwa." data-tip="Upana wa kila item kwenye preview na kwenye CSS inayozalishwa.">?</span></label><output id="widthOut">88 px</output></div>
+              <input id="tileWidth" type="range" min="48" max="160" value="88" />
+            </div>
+            <div class="control-group">
+              <div class="label-row"><label for="tileHeight">Item height<span class="help-tip" tabindex="0" role="img" aria-label="Help: Urefu wa kila item kwenye preview na kwenye CSS inayozalishwa." data-tip="Urefu wa kila item kwenye preview na kwenye CSS inayozalishwa.">?</span></label><output id="heightOut">88 px</output></div>
+              <input id="tileHeight" type="range" min="48" max="160" value="88" />
+            </div>
+          </div>
+          <div class="control-grid">
+            <div class="control-group">
+              <label for="tileColor">Item color<span class="help-tip" tabindex="0" role="img" aria-label="Help: Chagua rangi ya items zote kwenye preview." data-tip="Chagua rangi ya items zote kwenye preview.">?</span></label>
+              <div class="color-field"><input id="tileColor" type="color" value="#19d3b2" /><span id="colorText">#19D3B2</span></div>
+            </div>
+            <div class="control-group">
+              <label for="radius">Corner radius<span class="help-tip" tabindex="0" role="img" aria-label="Help: Border radius hudhibiti mviringo wa pembe za kila item. 0 ni pembe kali." data-tip="Border radius hudhibiti mviringo wa pembe za kila item. 0 ni pembe kali.">?</span></label>
+              <select id="radius"><option value="0">Square</option><option value="8">Soft</option><option value="16" selected>Rounded</option><option value="28">Pill-ish</option></select>
+            </div>
+          </div>
+          <div class="control-group">
+            <label for="animation">Animation<span class="help-tip" tabindex="0" role="img" aria-label="Help: Chagua aina ya animation inayotumika kwenye items. None huzima animation." data-tip="Chagua aina ya animation inayotumika kwenye items. None huzima animation.">?</span></label>
+            <select id="animation"><option value="none">None</option><option value="float">Float</option><option value="pulse">Pulse</option><option value="spin">Spin</option><option value="bounce">Bounce</option><option value="shake">Shake</option></select>
+          </div>
+          <div class="control-group">
+            <label for="speed">Animation speed<span class="help-tip" tabindex="0" role="img" aria-label="Help: Hudhibiti muda wa mzunguko wa animation. Muda mfupi humaanisha animation ya kasi zaidi." data-tip="Hudhibiti muda wa mzunguko wa animation. Muda mfupi humaanisha animation ya kasi zaidi.">?</span></label>
+            <select id="speed"><option value="2.8s">Slow</option><option value="1.5s" selected>Normal</option><option value=".75s">Fast</option></select>
+          </div>
+          <div class="button-row">
+            <button id="addBtn" class="primary-button">＋ Add item</button>
+            <button id="removeBtn" class="secondary-button">− Remove</button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="tools-row">
+      <button id="saveBtn" class="secondary-button">▣ Save layout</button><button id="undoBtn" class="secondary-button">↶ Undo</button><button id="redoBtn" class="secondary-button">↷ Redo</button><button id="exportBtn" class="secondary-button">↓ Export HTML + CSS</button>
+    </section>
+
+    <section class="code-card panel">
+      <div class="panel-heading code-heading">
+        <div><span class="section-kicker">03 / GENERATED CODE</span><h2>Your CSS, ready to use</h2></div>
+        <button id="copyBtn" class="primary-button copy-button">▣ Copy CSS</button>
+      </div>
+      <div class="code-window"><div class="code-top"><span></span><span></span><span></span><small>styles.css</small></div><pre><code id="cssCode"></code></pre></div>
+      <p class="code-note"><span>✦</span> Hover over the ? icons for explanations. Change a control and watch the preview and CSS update automatically.</p>
+    </section>
+
+    <section id="about" class="bottom-note">
+      <div class="mini-mark">DM</div><div><strong>Denis Mchunguzi’s Flexbox Lab</strong><p>An interactive CSS playground built by Denis Benedict Mchunguzi for learners and curious developers.</p></div>
+      <span class="made-label">MADE FOR THE WEB <b>↗</b></span>
+    </section>
+    <footer>© <span id="year"></span> Denis Mchunguzi’s Flexbox Lab <span class="footer-dot">•</span> Learn CSS by doing.</footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
